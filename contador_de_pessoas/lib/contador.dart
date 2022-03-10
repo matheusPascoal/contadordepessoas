@@ -40,11 +40,13 @@ class _ContadorState extends State<Contador> {
               image: AssetImage('assets/images/rest.jpg'), fit: BoxFit.cover),
         ),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          // SE DNO APP DER LOTADO ELE MUDA O TEXTO
+          // SE NO APP DER LOTADO ELE MUDA O TEXTO
           Text(isFull ? 'lotado' : "Pode entrar!",
-              style: const TextStyle(fontSize: 30)),
+              style: const TextStyle(fontSize: 30, color: Colors.white)),
           SizedBox(height: 60),
-          Text(count.toString(), style: const TextStyle(fontSize: 80)),
+          Text(count.toString(),
+              style: TextStyle(
+                  fontSize: 80, color: isFull ? Colors.red : Colors.white)),
           SizedBox(height: 40),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -67,7 +69,8 @@ class _ContadorState extends State<Contador> {
               TextButton(
                   onPressed: isFull ? null : increment,
                   style: TextButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      backgroundColor:
+                          isFull ? Colors.black.withOpacity(0.3) : Colors.white,
                       fixedSize: Size(100, 80),
                       primary: Colors.amber,
                       shape: RoundedRectangleBorder(
